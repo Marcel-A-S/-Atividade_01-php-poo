@@ -32,4 +32,13 @@ class planta
     {
         return $this->aguaPorDia;
     }
+
+     public function getcalcularguaSemanal(): string
+
+    {
+        return $this->aguaPorDia * 7;
+    }
 }
+
+
+

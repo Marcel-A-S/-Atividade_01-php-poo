@@ -2,10 +2,15 @@
 
 require_once "src/Planta.php";
 
-$planta = new Planta('suculenta', 'Echeveria elegans ', 15);
+$planta = new Planta(
+    'Suculenta',
+    'Echeveria elegans',
+    15
+);
 
 
-$planta = [$planta];
+// Coloca objeto dentro do array
+$plantas = [$planta];
 
 ?>
 <!-- 
@@ -34,19 +39,24 @@ Utilize os dados informados no enunciado. -->
         </p>
 
         <section class="cartao">
+             <?php foreach ($planta as $planta): ?>
 
-            <h2>
+            
                 <!-- Exiba o nome popular da planta. -->
-            </h2>
+                 <h2>
+                    <?= $planta->getNome() ?>
+                </h2>
+            
 
             <div class="informacao">
-                <?php foreach ($planta as $planta): ?>
+               
             
-                <span class="rotulo">Espécie científica> <?= $planta->getEspecie() ?> </span>
+                <span class="rotulo">Espécie científica></span>
 
                 <span class="valor">
                     <!-- Exiba a espécie. -->
-                      <h2> <?= $planta->getEspecie() ?> </h2>
+                      <h2>
+                        <?= $planta->getEspecie() ?> </h2>
                 </span>
             </div>
 
@@ -55,15 +65,20 @@ Utilize os dados informados no enunciado. -->
 
                 <span class="valor">
                     <!-- Exiba a quantidade diária em ml. -->
-                     <h2> <?= $planta->getAguaPorDia() ?> </h2>
+                     <h2> 
+                        <?= $planta->getAguaPorDia() ?> ml
+                    </h2>
                 </span>
             </div>
 
             <div class="destaque">
-                <strong>Recomendação para sete dias <?=  $planta-> getAguaPorDia() ?></strong>
+                <strong>
+                    Recomendação para sete dias <?=  $planta-> getAguaPorDia() ?>
+                </strong>
 
                 <p>
                     <!-- Exiba a quantidade calculada para sete dia -->
+                     <?=  $planta-> getcalcularguaSemanal() ?> ml
                 </p>
             </div>
 
